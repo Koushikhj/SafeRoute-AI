@@ -1,9 +1,11 @@
-
 import express from "express";
 import cors from "cors";
+
 import authRoutes from "./routes/authRoutes.js";
 import incidentRoutes from "./routes/incidentRoutes.js";
 import emergencyContactRoutes from "./routes/emergencyContactRoutes.js";
+import sosRoutes from "./routes/sosRoutes.js";
+import notificationRoutes from "./routes/notificationRoutes.js";
 
 const app = express();
 
@@ -20,8 +22,11 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Authentication routes
+// API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/incidents", incidentRoutes);
 app.use("/api/emergency-contacts", emergencyContactRoutes);
+app.use("/api/sos", sosRoutes);
+app.use("/api/notifications", notificationRoutes);
+
 export default app;
